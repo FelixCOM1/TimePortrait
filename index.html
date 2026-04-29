@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TimePortrait AI Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="TimePortrait AI home">
+          <span class="brand-mark" aria-hidden="true">TP</span>
+          <span>
+            <strong>TimePortrait</strong>
+            <small>AI Generator</small>
+          </span>
+        </a>
+
+        <nav class="topnav" aria-label="Workspace">
+          <a href="#studio">Studio</a>
+          <a href="#results">Results</a>
+          <a href="#brief">Prompt</a>
+        </nav>
+      </header>
+
+      <main id="studio" class="studio-grid">
+        <section class="control-panel" aria-labelledby="controls-title">
+          <div class="panel-heading">
+            <p class="eyebrow">Portrait setup</p>
+            <h1 id="controls-title">Generate an 1800s portrait brief</h1>
+          </div>
+
+          <form id="generatorForm" class="generator-form">
+            <label class="field">
+              <span>Reference image</span>
+              <input id="photoInput" type="file" accept="image/*" />
+            </label>
+
+            <label class="field">
+              <span>Subject details</span>
+              <textarea
+                id="subjectInput"
+                rows="4"
+                placeholder="Adult person, formal studio portrait, preserved identity and facial structure"
+              ></textarea>
+            </label>
+
+            <div class="field-row">
+              <label class="field">
+                <span>Era</span>
+                <select id="eraSelect">
+                  <option value="1850s wet plate collodion portrait">1850s wet plate</option>
+                  <option value="1860s Civil War era studio portrait">1860s studio</option>
+                  <option value="1870s Victorian albumen portrait">1870s albumen</option>
+                  <option value="1880s late Victorian cabinet card">1880s cabinet card</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>Wardrobe</span>
+                <select id="wardrobeSelect">
+                  <option value="elegant Victorian suit with high collar and waistcoat">Victorian suit</option>
+                  <option value="structured Victorian dress with lace collar and fitted bodice">Victorian dress</option>
+                  <option value="working-class wool coat, plain shirt, and practical period styling">Working class</option>
+                  <option value="formal mourning attire with restrained dark fabric and period accessories">Mourning attire</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="field-row">
+              <label class="field">
+                <span>Plate style</span>
+                <select id="plateSelect">
+                  <option value="daguerreotype silver plate with subtle tarnish">Daguerreotype</option>
+                  <option value="wet plate collodion glass negative look">Wet plate</option>
+                  <option value="albumen print with faded paper fibers">Albumen print</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>Tone</span>
+                <select id="toneSelect">
+                  <option value="sepia">Sepia</option>
+                  <option value="mono">Black and white</option>
+                  <option value="cool">Silver gray</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="slider-field">
+              <span>Aging intensity</span>
+              <input id="ageRange" type="range" min="10" max="95" value="66" />
+            </label>
+
+            <fieldset class="toggle-set">
+              <legend>Imperfections</legend>
+              <label><input id="grainToggle" type="checkbox" checked /> Grain</label>
+              <label><input id="scratchToggle" type="checkbox" checked /> Scratches</label>
+              <label><input id="fadeToggle" type="checkbox" checked /> Fading</label>
+            </fieldset>
+
+            <div class="actions">
+              <button class="primary-button" type="submit">
+                <span class="button-icon" aria-hidden="true"></span>
+                Generate
+              </button>
+              <button id="resetButton" class="ghost-button" type="button">Reset</button>
+            </div>
+          </form>
+        </section>
+
+        <section id="results" class="preview-panel" aria-labelledby="preview-title">
+          <div class="preview-toolbar">
+            <div>
+              <p class="eyebrow">Live proof</p>
+              <h2 id="preview-title">Victorian portrait plate</h2>
+            </div>
+            <button id="downloadButton" class="icon-button" type="button" title="Download proof" aria-label="Download proof">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v3h14v-3" />
+              </svg>
+            </button>
+          </div>
+
+          <div class="plate-stage">
+            <figure class="plate-frame">
+              <img id="portraitPreview" src="assets/sample-portrait.png" alt="Aged Victorian portrait preview" />
+              <figcaption id="plateCaption">1850s wet plate collodion portrait</figcaption>
+            </figure>
+          </div>
+
+          <div class="result-strip" aria-label="Current output settings">
+            <span id="eraChip">1850s wet plate</span>
+            <span id="toneChip">Sepia</span>
+            <span id="ageChip">66% aged</span>
+          </div>
+        </section>
+
+        <section id="brief" class="prompt-panel" aria-labelledby="prompt-title">
+          <div class="prompt-heading">
+            <div>
+              <p class="eyebrow">Generation prompt</p>
+              <h2 id="prompt-title">Production-ready brief</h2>
+            </div>
+            <button id="copyButton" class="ghost-button" type="button">Copy</button>
+          </div>
+
+          <textarea id="promptOutput" readonly></textarea>
+
+          <div class="history" aria-labelledby="history-title">
+            <h3 id="history-title">Recent runs</h3>
+            <div id="historyList" class="history-list"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <canvas id="renderCanvas" hidden></canvas>
+    <script src="script.js"></script>
+  </body>
+</html>
