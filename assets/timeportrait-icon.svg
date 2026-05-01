@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">TimePortrait icon</title>
+  <desc id="desc">A Victorian portrait plate monogram icon for the TimePortrait AI generator.</desc>
+  <defs>
+    <linearGradient id="plate" x1="10" y1="6" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#23262b" />
+      <stop offset="0.54" stop-color="#121319" />
+      <stop offset="1" stop-color="#33251f" />
+    </linearGradient>
+    <linearGradient id="paper" x1="20" y1="15" x2="44" y2="51" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff8e8" />
+      <stop offset="0.62" stop-color="#d7c09b" />
+      <stop offset="1" stop-color="#8f7042" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="8" fill="#15161b" />
+  <rect x="5" y="5" width="54" height="54" rx="6" fill="url(#plate)" stroke="#d8cbb8" stroke-opacity="0.32" />
+  <path d="M32 10c10.5 0 19 8.8 19 19.6 0 13-9.5 21.5-19 24.4-9.5-2.9-19-11.4-19-24.4C13 18.8 21.5 10 32 10Z" fill="#1d1b1b" stroke="#b38a36" stroke-width="2" />
+  <path d="M32 15c7.7 0 14 6.5 14 14.5 0 9.1-6.8 15.8-14 18.4-7.2-2.6-14-9.3-14-18.4C18 21.5 24.3 15 32 15Z" fill="url(#paper)" opacity="0.95" />
+  <path d="M24 25h16M32 25v17M24 42h16" fill="none" stroke="#15161b" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M24 25c0 4.2 3.6 6.4 8 6.4s8-2.2 8-6.4" fill="none" stroke="#15161b" stroke-width="2.4" stroke-linecap="round" opacity="0.76" />
+  <path d="M12 14l5 3M50 47l4 3M9 45l5-2M49 13l-4 4" stroke="#fff8e8" stroke-width="1.1" stroke-linecap="round" opacity="0.32" />
+  <circle cx="48" cy="20" r="1.3" fill="#fff8e8" opacity="0.45" />
+  <circle cx="17" cy="49" r="1" fill="#fff8e8" opacity="0.38" />
+</svg>
